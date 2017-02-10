@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/b_account_p" android:state_selected="true"/>
+    <item android:drawable="@drawable/b_account"/>
+    <item android:drawable="@drawable/b_home_p" android:state_selected="true"/>
+    <item android:drawable="@drawable/b_home"/>
+    <item android:drawable="@drawable/b_shot_p" android:state_selected="true"/>
+    <item android:drawable="@drawable/b_shot"/>
+</selector>
