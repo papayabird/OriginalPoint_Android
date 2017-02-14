@@ -14,6 +14,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     paco.originalpoint.fragment.Message messageVC;
     paco.originalpoint.fragment.Case caseVC;
+    paco.originalpoint.fragment.Station stationVC;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
         RadioButton caseBtn = (RadioButton) findViewById(R.id.rbCase);
         caseBtn.setOnClickListener(this);
+
+        RadioButton stationBtn = (RadioButton) findViewById(R.id.rbStation);
+        stationBtn.setOnClickListener(this);
         //
         transaction = getSupportFragmentManager().beginTransaction();
 
@@ -68,9 +73,13 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 transaction.commit();
 
                 break;
-            case R.id.rbprofile:
+            case R.id.rbStation:
 
-
+                if (stationVC == null) {
+                    stationVC = new paco.originalpoint.fragment.Station();
+                }
+                transaction.replace(R.id.frame, stationVC);
+                transaction.commit();
 
                 break;
             default:

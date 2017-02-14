@@ -7,17 +7,19 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+
+
+import com.google.firebase.storage.FirebaseStorage;
 
 import paco.originalpoint.R;
 import paco.originalpoint.TitleBar;
 import paco.originalpoint.baseFragment;
 
 
-public class Case extends baseFragment {
-
+public class Station extends baseFragment {
     private View view;
     private Context thisContext;
+    FirebaseStorage storage = FirebaseStorage.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -27,13 +29,13 @@ public class Case extends baseFragment {
 
         final TitleBar titleBar = (TitleBar)view.findViewById(R.id.title_bar);
         titleBar.setImmersive(true);
-
         titleBar.setBackgroundColor(Color.parseColor("#64b4ff"));
 
-        titleBar.setTitle("案例分享");
+        titleBar.setTitle("服務據點");
         titleBar.setTitleColor(Color.WHITE);
         titleBar.setSubTitleColor(Color.WHITE);
         titleBar.setDividerColor(Color.GRAY);
+
 
         //導入Tab分頁的Fragment Layout
         return view;
@@ -53,5 +55,6 @@ public class Case extends baseFragment {
     protected void initData() {
 
     }
+
 
 }
