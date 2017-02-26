@@ -1,10 +1,10 @@
-package paco.originalpoint.fragment.station;
+package paco.originalPoint.fragment.station;
 
 /**
  * Created by tsaiyuheng on 2017/2/14.
  */
 
-public class stationObject {
+public class StationObject {
 
     String stationName;
     String address;
@@ -43,7 +43,7 @@ public class stationObject {
         this.lng = lng;
     }
 /*
-    public stationObject(String stationName, String address, String lat, String lng) {
+    public StationObject(String stationName, String address, String lat, String lng) {
 
         this.stationName = stationName;
         this.address = address;

@@ -1,4 +1,4 @@
-package paco.originalpoint;
+package paco.originalPoint;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package paco.originalpoint;
+package paco.originalPoint;
 
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
@@ -12,9 +12,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     FragmentTransaction transaction;
 
-    paco.originalpoint.fragment.Message messageVC;
-    paco.originalpoint.fragment.Case caseVC;
-    paco.originalpoint.fragment.Station stationVC;
+    paco.originalPoint.fragment.Message messageVC;
+    paco.originalPoint.fragment.Case caseVC;
+    paco.originalPoint.fragment.Station stationVC;
 
 
     @Override
@@ -38,7 +38,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         //
         transaction = getSupportFragmentManager().beginTransaction();
 
-        messageVC = new paco.originalpoint.fragment.Message();
+        messageVC = new paco.originalPoint.fragment.Message();
         transaction.add(R.id.frame, messageVC);
 
         transaction.commit();
@@ -56,7 +56,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             case R.id.rbMessasge:
 
                 if (messageVC == null) {
-                    messageVC = new paco.originalpoint.fragment.Message();
+                    messageVC = new paco.originalPoint.fragment.Message();
                 }
 
                 transaction.replace(R.id.frame, messageVC);
@@ -67,7 +67,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             case R.id.rbCase:
 
                 if (caseVC == null) {
-                    caseVC = new paco.originalpoint.fragment.Case();
+                    caseVC = new paco.originalPoint.fragment.Case();
                 }
                 transaction.replace(R.id.frame, caseVC);
                 transaction.commit();
@@ -76,7 +76,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             case R.id.rbStation:
 
                 if (stationVC == null) {
-                    stationVC = new paco.originalpoint.fragment.Station();
+                    stationVC = new paco.originalPoint.fragment.Station();
                 }
                 transaction.replace(R.id.frame, stationVC);
                 transaction.commit();

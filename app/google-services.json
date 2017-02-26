@@ -15,36 +15,13 @@
       },
       "oauth_client": [
         {
-          "client_id": "96257681186-oib4tlgf7k6dr502gqv44q52q64mq6j4.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDH3l4pcs9guBii1G_lsT_7lIyWyDOZmbE"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
+          "client_id": "96257681186-e729m4mi8pmpj15fuguc493jt055113p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "paco.originalPoint",
+            "certificate_hash": "40224f615fcdf73b47b092021efb73674a6409b4"
+          }
         },
-        "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:96257681186:android:576354b837b35fe7",
-        "android_client_info": {
-          "package_name": "paco.originalpoint"
-        }
-      },
-      "oauth_client": [
         {
           "client_id": "96257681186-oib4tlgf7k6dr502gqv44q52q64mq6j4.apps.googleusercontent.com",
           "client_type": 3
@@ -60,8 +37,20 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "96257681186-liok9majajkeic0mi7jq6r1blnlq06nq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.OP.OriginalPoint"
+              }
+            },
+            {
+              "client_id": "96257681186-oib4tlgf7k6dr502gqv44q52q64mq6j4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

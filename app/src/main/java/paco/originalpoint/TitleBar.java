@@ -1,4 +1,4 @@
-package paco.originalpoint;
+package paco.originalPoint;
 
 import android.content.Context;
 import android.content.res.Resources;

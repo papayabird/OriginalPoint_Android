@@ -1,20 +1,18 @@
-package paco.originalpoint.fragment;
+package paco.originalPoint.fragment;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
-import paco.originalpoint.R;
-import paco.originalpoint.TitleBar;
-import paco.originalpoint.baseFragment;
+import paco.originalPoint.R;
+import paco.originalPoint.TitleBar;
+import paco.originalPoint.BaseFragment;
 
 
-public class Case extends baseFragment {
+public class Case extends BaseFragment {
 
     private View view;
     private Context thisContext;

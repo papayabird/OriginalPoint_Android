@@ -1,4 +1,4 @@
-package paco.originalpoint.fragment;
+package paco.originalPoint.fragment;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -15,20 +15,18 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
-import paco.originalpoint.R;
-import paco.originalpoint.TitleBar;
-import paco.originalpoint.baseFragment;
-import paco.originalpoint.fragment.station.stationObject;
+import paco.originalPoint.R;
+import paco.originalPoint.TitleBar;
+import paco.originalPoint.BaseFragment;
+import paco.originalPoint.fragment.station.StationObject;
 
-public class Station extends baseFragment {
+public class Station extends BaseFragment {
     private View view;
     private Context thisContext;
     DatabaseReference stationRef = FirebaseDatabase.getInstance().getReference().child("StationDB");
     private static final String TAG = "station";
-    ArrayList<stationObject> stationArray = new ArrayList<stationObject>();
+    ArrayList<StationObject> stationArray = new ArrayList<StationObject>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -60,7 +58,7 @@ public class Station extends baseFragment {
                         // Get user value
 
                         for (DataSnapshot messageSnapshot: dataSnapshot.getChildren()) {
-                            stationObject station = new stationObject();
+                            StationObject station = new StationObject();
                             station.setStationName((String) messageSnapshot.child("stationName").getValue());
                             station.setAddress((String) messageSnapshot.child("address").getValue());
                             station.setLat((String) messageSnapshot.child("lat").getValue());

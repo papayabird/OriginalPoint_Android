@@ -1,4 +1,4 @@
-package paco.originalpoint;
+package paco.originalPoint;
 
 import android.app.Activity;
 import android.support.v4.app.Fragment;
@@ -17,7 +17,7 @@ import android.view.WindowManager;
  * Created by tsaiyuheng on 2017/2/14.
  */
 
-public abstract class baseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment {
 
     protected Activity mActivity;
 
