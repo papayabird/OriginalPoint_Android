@@ -1,8 +1,10 @@
 package paco.originalPoint;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -43,6 +45,15 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
         transaction.commit();
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Intent intent = getIntent();
+        String msg = intent.getStringExtra("msg");
+        if (msg!=null)
+            Log.d("FCM", "msg:"+msg);
     }
 
     @Override
