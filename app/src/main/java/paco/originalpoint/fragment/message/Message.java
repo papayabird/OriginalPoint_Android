@@ -53,6 +53,7 @@ public class Message extends BaseFragment {
         titleBar.setSubTitleColor(Color.WHITE);
         titleBar.setDividerColor(Color.GRAY);
 
+        /*
         titleBar.setActionTextColor(Color.WHITE);
         mCollectView = (ImageView) titleBar.addAction(new TitleBar.ImageAction(R.mipmap.ic_launcher) {
             @Override
@@ -64,12 +65,14 @@ public class Message extends BaseFragment {
             }
         });
 
+
         titleBar.addAction(new TitleBar.TextAction("发布") {
             @Override
             public void performAction(View view) {
                 Toast.makeText(thisContext, "点击了发布", Toast.LENGTH_SHORT).show();
             }
         });
+        */
 
         floatingActionMenu = (FloatingActionMenu) view.findViewById(R.id.fam);
         floatingActionButtonAddCard = (FloatingActionButton) view.findViewById(R.id.addCard);
