@@ -14,12 +14,17 @@ import paco.originalPoint.R;
 import paco.originalPoint.TitleBar;
 import paco.originalPoint.BaseFragment;
 
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
+
 public class Message extends BaseFragment {
 
     private ImageView mCollectView;
     private boolean mIsSelected;
     private View view;
     private Context thisContext;
+    FloatingActionMenu floatingActionMenu;
+    FloatingActionButton floatingActionButtonAddCard,floatingActionButtonRefresh;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -63,6 +68,25 @@ public class Message extends BaseFragment {
             @Override
             public void performAction(View view) {
                 Toast.makeText(thisContext, "点击了发布", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        floatingActionMenu = (FloatingActionMenu) view.findViewById(R.id.fam);
+        floatingActionButtonAddCard = (FloatingActionButton) view.findViewById(R.id.addCard);
+        floatingActionButtonAddCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                interfaceSwitchingFragment.switchFragment(Modules.ADD_CARDS, null);
+                floatingActionMenu.close(true);
+            }
+        });
+        floatingActionButtonRefresh = (FloatingActionButton) view.findViewById(R.id.refreshCard);
+        floatingActionButtonRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                floatingActionMenu.close(true);
+//                dialog.show();
+//                requestDigitizedCards();
             }
         });
 

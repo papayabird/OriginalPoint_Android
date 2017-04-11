@@ -3,4 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+    <item name="floating_menu_background_normal" type="color">#ffffff</item>
+    <item name="floating_menu_background_pressed" type="color">#eeeeee</item>
+    <item name="floating_btn_red_color" type="color">#BF5A4A</item>
+    <item name="btn_red_color_pressed" type="color">#b75344</item>
 </resources>
