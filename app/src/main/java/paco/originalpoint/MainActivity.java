@@ -9,14 +9,17 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import paco.originalPoint.fragment.Massage;
+import paco.originalPoint.fragment.Station;
+import paco.originalPoint.fragment.Case;
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
 
     FragmentTransaction transaction;
 
-    paco.originalPoint.fragment.Message messageVC;
-    paco.originalPoint.fragment.Case caseVC;
-    paco.originalPoint.fragment.Station stationVC;
+    Massage massageVC;
+    Case caseVC;
+    Station stationVC;
 
 
     @Override
@@ -40,8 +43,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         //
         transaction = getSupportFragmentManager().beginTransaction();
 
-        messageVC = new paco.originalPoint.fragment.Message();
-        transaction.add(R.id.frame, messageVC);
+        massageVC = new Massage();
+        transaction.add(R.id.frame, massageVC);
 
         transaction.commit();
 
@@ -66,11 +69,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         switch (rb.getId()) {
             case R.id.rbMessasge:
 
-                if (messageVC == null) {
-                    messageVC = new paco.originalPoint.fragment.Message();
+                if (massageVC == null) {
+                    massageVC = new Massage();
                 }
 
-                transaction.replace(R.id.frame, messageVC);
+                transaction.replace(R.id.frame, massageVC);
 
                 transaction.commit();
 

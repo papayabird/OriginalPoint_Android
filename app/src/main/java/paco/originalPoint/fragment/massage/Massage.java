@@ -3,26 +3,32 @@ package paco.originalPoint.fragment;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import paco.originalPoint.R;
 
 import paco.originalPoint.TitleBar;
 import paco.originalPoint.BaseFragment;
+import paco.originalPoint.fragment.massage.MassageDetail;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 
-public class Message extends BaseFragment {
+public class Massage extends BaseFragment {
 
     private ImageView mCollectView;
     private boolean mIsSelected;
     private View view;
     private Context thisContext;
+    private FragmentManager manager;
+    private FragmentTransaction transaction;
+    paco.originalPoint.fragment.massage.MassageDetail massageDetail;
     FloatingActionMenu floatingActionMenu;
     FloatingActionButton floatingActionButtonAddCard,floatingActionButtonRefresh;
 
@@ -38,15 +44,6 @@ public class Message extends BaseFragment {
         titleBar.setImmersive(true);
 
         titleBar.setBackgroundColor(Color.parseColor("#64b4ff"));
-
-        titleBar.setLeftText("返回");
-        titleBar.setLeftTextColor(Color.WHITE);
-        titleBar.setLeftClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                finish();
-            }
-        });
 
         titleBar.setTitle("推按資訊");
         titleBar.setTitleColor(Color.WHITE);
@@ -74,6 +71,20 @@ public class Message extends BaseFragment {
         });
         */
 
+        Button detailButton = (Button)view.findViewById(R.id.button2);
+        detailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                manager = getFragmentManager();
+                transaction = manager.beginTransaction();
+                transaction.addToBackStack(null);
+                massageDetail = new MassageDetail();
+                transaction.replace(R.id.frame, massageDetail);
+                transaction.commit();
+            }
+        });
+
         floatingActionMenu = (FloatingActionMenu) view.findViewById(R.id.fam);
         floatingActionButtonAddCard = (FloatingActionButton) view.findViewById(R.id.addCard);
         floatingActionButtonAddCard.setOnClickListener(new View.OnClickListener() {
@@ -92,6 +103,8 @@ public class Message extends BaseFragment {
 //                requestDigitizedCards();
             }
         });
+
+
 
         //導入Tab分頁的Fragment Layout
         return view;
