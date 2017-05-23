@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:swipe="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -9,6 +11,48 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/fam"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="top|right"
+        fab:menu_icon="@drawable/floating_btn_icon"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="0dp"
+        fab:menu_colorNormal="@color/floating_btn_red_color"
+        fab:menu_colorPressed="@color/btn_red_color_pressed"
+        fab:menu_openDirection="down"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        fab:menu_fab_size="mini">
+
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/btn_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/add_card_icon"
+            swipe:fab_colorNormal="@color/floating_menu_background_normal"
+            swipe:fab_colorPressed="@color/floating_menu_background_pressed"
+            fab:fab_size="mini"
+            fab:fab_label="Home"
+            />
+
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/btn_noti_Box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/refresh_card_icon"
+            fab:fab_colorNormal="@color/floating_menu_background_normal"
+            fab:fab_colorPressed="@color/floating_menu_background_pressed"
+            fab:fab_size="mini"
+            fab:fab_label="Shot"
+
+            />
+
+
+    </com.github.clans.fab.FloatingActionMenu>
 
 
 </RelativeLayout>

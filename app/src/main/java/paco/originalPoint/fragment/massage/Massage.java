@@ -86,7 +86,7 @@ public class Massage extends BaseFragment {
         });
 
         floatingActionMenu = (FloatingActionMenu) view.findViewById(R.id.fam);
-        floatingActionButtonAddCard = (FloatingActionButton) view.findViewById(R.id.addCard);
+        floatingActionButtonAddCard = (FloatingActionButton) view.findViewById(R.id.btn_setting);
         floatingActionButtonAddCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,7 +94,7 @@ public class Massage extends BaseFragment {
                 floatingActionMenu.close(true);
             }
         });
-        floatingActionButtonRefresh = (FloatingActionButton) view.findViewById(R.id.refreshCard);
+        floatingActionButtonRefresh = (FloatingActionButton) view.findViewById(R.id.btn_setting);
         floatingActionButtonRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
