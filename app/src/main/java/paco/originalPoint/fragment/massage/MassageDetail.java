@@ -4,7 +4,6 @@ package paco.originalPoint.fragment.massage;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Message;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -17,7 +16,6 @@ import com.github.clans.fab.FloatingActionMenu;
 import paco.originalPoint.BaseFragment;
 import paco.originalPoint.R;
 import paco.originalPoint.TitleBar;
-import paco.originalPoint.fragment.Massage;
 
 public class MassageDetail extends BaseFragment {
 

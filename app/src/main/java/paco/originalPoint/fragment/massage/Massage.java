@@ -1,4 +1,4 @@
-package paco.originalPoint.fragment;
+package paco.originalPoint.fragment.massage;
 
 import android.content.Context;
 import android.graphics.Color;

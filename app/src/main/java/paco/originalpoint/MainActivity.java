@@ -1,24 +1,24 @@
 package paco.originalPoint;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import paco.originalPoint.fragment.Massage;
-import paco.originalPoint.fragment.Station;
-import paco.originalPoint.fragment.Case;
+import paco.originalPoint.fragment.sample.Sample;
+import paco.originalPoint.fragment.massage.Massage;
+import paco.originalPoint.fragment.station.Station;
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
 
     FragmentTransaction transaction;
 
     Massage massageVC;
-    Case caseVC;
+    Sample sampleVC;
     Station stationVC;
 
 
@@ -74,23 +74,22 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 }
 
                 transaction.replace(R.id.frame, massageVC);
-
                 transaction.commit();
 
                 break;
             case R.id.rbCase:
 
-                if (caseVC == null) {
-                    caseVC = new paco.originalPoint.fragment.Case();
+                if (sampleVC == null) {
+                    sampleVC = new Sample();
                 }
-                transaction.replace(R.id.frame, caseVC);
+                transaction.replace(R.id.frame, sampleVC);
                 transaction.commit();
 
                 break;
             case R.id.rbStation:
 
                 if (stationVC == null) {
-                    stationVC = new paco.originalPoint.fragment.Station();
+                    stationVC = new Station();
                 }
                 transaction.replace(R.id.frame, stationVC);
                 transaction.commit();
