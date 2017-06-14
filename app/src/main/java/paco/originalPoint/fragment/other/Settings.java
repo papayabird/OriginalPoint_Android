@@ -33,6 +33,21 @@ public class Settings extends BaseFragment {
         titleBar.setSubTitleColor(Color.WHITE);
         titleBar.setDividerColor(Color.GRAY);
 
+        titleBar.setLeftText("返回");
+        titleBar.setLeftTextColor(Color.WHITE);
+        titleBar.setLeftClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                int count = getFragmentManager().getBackStackEntryCount();
+
+                if (count == 0) {
+                    getActivity().onBackPressed();
+                } else {
+                    getFragmentManager().popBackStack();
+                }
+            }
+        });
         //導入Tab分頁的Fragment Layout
         return view;
     }

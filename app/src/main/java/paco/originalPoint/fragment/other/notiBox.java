@@ -32,18 +32,6 @@ public class Notibox extends BaseFragment {
         titleBar.setSubTitleColor(Color.WHITE);
         titleBar.setDividerColor(Color.GRAY);
 
-        titleBar.setActionTextColor(Color.WHITE);
-        /*
-        mCollectView = (ImageView) titleBar.addAction(new TitleBar.ImageAction(R.mipmap.ic_launcher) {
-            @Override
-            public void performAction(View view) {
-                Toast.makeText(thisContext, "点击了收藏", Toast.LENGTH_SHORT).show();
-                mCollectView.setImageResource(R.mipmap.ic_launcher);
-                titleBar.setTitle(mIsSelected ? "文章详情\n朋友圈" : "帖子详情");
-                mIsSelected = !mIsSelected;
-            }
-        });
-    */
         titleBar.setLeftText("返回");
         titleBar.setLeftTextColor(Color.WHITE);
         titleBar.setLeftClickListener(new View.OnClickListener() {
@@ -57,13 +45,6 @@ public class Notibox extends BaseFragment {
                 } else {
                     getFragmentManager().popBackStack();
                 }
-            }
-        });
-
-        titleBar.addAction(new TitleBar.TextAction("发布") {
-            @Override
-            public void performAction(View view) {
-//                Toast.makeText(thisContext, "点击了发布", Toast.LENGTH_SHORT).show();
             }
         });
 
