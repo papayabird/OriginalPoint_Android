@@ -1,4 +1,4 @@
-package paco.originalPoint.fragment;
+package paco.originalPoint.fragment.other;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -7,12 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import paco.originalPoint.BaseFragment;
 import paco.originalPoint.R;
 import paco.originalPoint.TitleBar;
-import paco.originalPoint.BaseFragment;
 
 
-public class Case extends BaseFragment {
+public class Settings extends BaseFragment {
 
     private View view;
     private Context thisContext;
@@ -21,14 +21,14 @@ public class Case extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         thisContext = container.getContext();
-        view = inflater.inflate(R.layout.fragment_case, container, false);
+        view = inflater.inflate(R.layout.fragment_settings, container, false);
 
         final TitleBar titleBar = (TitleBar)view.findViewById(R.id.title_bar);
         titleBar.setImmersive(true);
 
         titleBar.setBackgroundColor(Color.parseColor("#64b4ff"));
 
-        titleBar.setTitle("案例分享");
+        titleBar.setTitle("設定");
         titleBar.setTitleColor(Color.WHITE);
         titleBar.setSubTitleColor(Color.WHITE);
         titleBar.setDividerColor(Color.GRAY);
@@ -51,5 +51,5 @@ public class Case extends BaseFragment {
     protected void initData() {
 
     }
-
 }
+

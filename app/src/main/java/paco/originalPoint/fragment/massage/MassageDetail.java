@@ -46,12 +46,12 @@ public class MassageDetail extends BaseFragment {
             @Override
             public void onClick(View v) {
 
-                manager = getFragmentManager();
-                transaction = manager.beginTransaction();
-                massage = new Massage();
-                transaction.replace(R.id.frame, massage);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                int count = getFragmentManager().getBackStackEntryCount();
+                if (count == 0) {
+                    getActivity().onBackPressed();
+                } else {
+                    getFragmentManager().popBackStack();
+                }
             }
         });
 

@@ -15,7 +15,7 @@ import paco.originalPoint.R;
 
 import paco.originalPoint.TitleBar;
 import paco.originalPoint.BaseFragment;
-import paco.originalPoint.fragment.massage.MassageDetail;
+import paco.originalPoint.fragment.other.*;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
@@ -29,6 +29,8 @@ public class Massage extends BaseFragment {
     private FragmentManager manager;
     private FragmentTransaction transaction;
     paco.originalPoint.fragment.massage.MassageDetail massageDetail;
+    Settings settings;
+    Notibox notibox;
     FloatingActionMenu floatingActionMenu;
     FloatingActionButton floatingActionButtonAddCard,floatingActionButtonRefresh;
 
@@ -86,11 +88,18 @@ public class Massage extends BaseFragment {
         });
 
         floatingActionMenu = (FloatingActionMenu) view.findViewById(R.id.fam);
-        floatingActionButtonAddCard = (FloatingActionButton) view.findViewById(R.id.btn_setting);
+        floatingActionButtonAddCard = (FloatingActionButton) view.findViewById(R.id.btn_noti_Box);
         floatingActionButtonAddCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                interfaceSwitchingFragment.switchFragment(Modules.ADD_CARDS, null);
+
+                manager = getFragmentManager();
+                transaction = manager.beginTransaction();
+                transaction.addToBackStack(null);
+                notibox = new Notibox();
+                transaction.replace(R.id.frame, notibox);
+                transaction.commit();
+
                 floatingActionMenu.close(true);
             }
         });
@@ -98,9 +107,13 @@ public class Massage extends BaseFragment {
         floatingActionButtonRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                manager = getFragmentManager();
+                transaction = manager.beginTransaction();
+                transaction.addToBackStack(null);
+                settings = new Settings();
+                transaction.replace(R.id.frame, settings);
+                transaction.commit();
                 floatingActionMenu.close(true);
-//                dialog.show();
-//                requestDigitizedCards();
             }
         });
 
