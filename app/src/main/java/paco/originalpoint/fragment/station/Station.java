@@ -7,12 +7,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import com.google.firebase.database.DataSnapshot;
@@ -34,12 +41,16 @@ public class Station extends BaseFragment {
     DatabaseReference stationRef = FirebaseDatabase.getInstance().getReference().child("StationDB");
     private static final String TAG = "station";
     ArrayList<StationObject> stationArray = new ArrayList<StationObject>();
+    Bundle sis;
+    MapView mapView;
+    GoogleMap map;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
+        sis = savedInstanceState;
         thisContext = container.getContext();
-        view = inflater.inflate(R.layout.fragment_case, container, false);
+        view = inflater.inflate(R.layout.fragment_station, container, false);
 
         final TitleBar titleBar = (TitleBar)view.findViewById(R.id.title_bar);
         titleBar.setImmersive(true);
@@ -69,10 +80,11 @@ public class Station extends BaseFragment {
                             station.setStationName((String) messageSnapshot.child("stationName").getValue());
                             station.setAddress((String) messageSnapshot.child("address").getValue());
                             station.setLat((String) messageSnapshot.child("lat").getValue());
-                            station.setLng((String) messageSnapshot.child("lng").getValue());
+                            station.setLng((String) messageSnapshot.child("long").getValue());
                             stationArray.add(station);
                         }
-
+                        Log.i(TAG, "station count = " + stationArray.size());
+                        initMap();
                     }
 
                     @Override
@@ -85,15 +97,41 @@ public class Station extends BaseFragment {
 
     private void initMap() {
 
-//        manager = this.getSupportFragmentManager();
-//        SupportMapFragment mapFragment = (SupportMapFragment) this.getSupportFragmentManager().findFragmentById(R.id.map);
-//        mapFragment.getMapAsync(this);
+        mapView = (MapView) view.findViewById(R.id.mapview);
+        mapView.onCreate(sis);
+        mapView.onResume();// needed to get the map to display immediately
 
+        mapView.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(GoogleMap googleMap) {
+                map = googleMap;
 
+                for (int i = 0;i < stationArray.size();i++) {
+                    StationObject stationObj = stationArray.get(i);
+                    Marker marker = map.addMarker(new MarkerOptions()
+                            .position(new LatLng(Double.parseDouble(stationObj.getLat()), Double.parseDouble(stationObj.getLng())))
+                            .title(stationObj.getStationName()));
+                    marker.setTag(i);
+                }
+
+                double la = 25.033718;
+                double lo = 121.56481;
+                final CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(la, lo), 13);
+                map.moveCamera(cameraUpdate);
+            }
+        });
 
     }
 
-    @Override
+    public boolean onMarkerClick(final Marker marker) {
+
+        Integer clickCount = (Integer) marker.getTag();
+        Log.i(TAG, "clickCount = " + clickCount);
+
+        return false;
+    }
+
+        @Override
     protected int getLayoutId() {
         return 0;
     }

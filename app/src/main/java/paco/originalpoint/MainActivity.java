@@ -1,5 +1,6 @@
 package paco.originalPoint;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -20,6 +21,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     Massage massageVC;
     Sample sampleVC;
     Station stationVC;
+    private static Activity activity;
+    private static CustomDialog dialog;
 
 
     @Override
@@ -98,7 +101,37 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             default:
                 System.out.println("nothing");
         }
+    }
 
+    public static CustomDialog getDialog()
+    {
+        return dialog;
+    }
 
+    public static void setDialog(CustomDialog newDialog)
+    {
+        try
+        {
+            if (dialog != null)
+                dialog.dismiss();
+            dialog = null;
+
+            MainActivity.dialog = newDialog;
+        }
+        catch (Exception e)
+        {
+            dialog = null;
+        }
+
+    }
+
+    public static Activity getActivity()
+    {
+        return activity;
+    }
+
+    public static void setActivity(Activity activity)
+    {
+        MainActivity.activity = activity;
     }
 }

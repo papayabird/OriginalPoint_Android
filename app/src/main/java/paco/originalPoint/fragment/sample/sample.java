@@ -22,7 +22,7 @@ public class Sample extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         thisContext = container.getContext();
-        view = inflater.inflate(R.layout.fragment_case, container, false);
+        view = inflater.inflate(R.layout.fragment_sample, container, false);
 
         final TitleBar titleBar = (TitleBar)view.findViewById(R.id.title_bar);
         titleBar.setImmersive(true);
