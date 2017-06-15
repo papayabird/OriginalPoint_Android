@@ -15,6 +15,7 @@ import paco.originalPoint.R;
 
 import paco.originalPoint.TitleBar;
 import paco.originalPoint.BaseFragment;
+import paco.originalPoint.Utils;
 import paco.originalPoint.fragment.other.*;
 
 import com.github.clans.fab.FloatingActionButton;
@@ -77,13 +78,29 @@ public class Massage extends BaseFragment {
         detailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                /*
                 manager = getFragmentManager();
                 transaction = manager.beginTransaction();
                 transaction.addToBackStack(null);
                 massageDetail = new MassageDetail();
                 transaction.replace(R.id.frame, massageDetail);
                 transaction.commit();
+                */
+                Utils.show2BtnMessageDialog("111","22",new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                },"333",new View.OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });
+
             }
         });
 

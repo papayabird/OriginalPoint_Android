@@ -33,6 +33,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         RadioGroup group = (RadioGroup)findViewById(R.id.radiogp);
         group.check(R.id.rbMessasge);
 
+        MainActivity.setActivity(this);
         //
         RadioButton messageBtn = (RadioButton) findViewById(R.id.rbMessasge);
         messageBtn.setSelected(true);

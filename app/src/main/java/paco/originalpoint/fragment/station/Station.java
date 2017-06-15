@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import paco.originalPoint.R;
 import paco.originalPoint.TitleBar;
 import paco.originalPoint.BaseFragment;
+import paco.originalPoint.Utils;
 import paco.originalPoint.fragment.station.StationObject;
 
 public class Station extends BaseFragment {
@@ -68,31 +69,38 @@ public class Station extends BaseFragment {
 
     public void initFirDB() {
 
-        stationRef.addListenerForSingleValueEvent(
+        Utils.showProgressDialog("資料下載中");
 
-                new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        // Get user value
+        new Thread(new Runnable() {
+            public void run() {
+                stationRef.addListenerForSingleValueEvent(
 
-                        for (DataSnapshot messageSnapshot: dataSnapshot.getChildren()) {
-                            StationObject station = new StationObject();
-                            station.setStationName((String) messageSnapshot.child("stationName").getValue());
-                            station.setAddress((String) messageSnapshot.child("address").getValue());
-                            station.setLat((String) messageSnapshot.child("lat").getValue());
-                            station.setLng((String) messageSnapshot.child("long").getValue());
-                            stationArray.add(station);
+                        new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                // Get user value
+
+                                for (DataSnapshot messageSnapshot: dataSnapshot.getChildren()) {
+                                    StationObject station = new StationObject();
+                                    station.setStationName((String) messageSnapshot.child("stationName").getValue());
+                                    station.setAddress((String) messageSnapshot.child("address").getValue());
+                                    station.setLat((String) messageSnapshot.child("lat").getValue());
+                                    station.setLng((String) messageSnapshot.child("long").getValue());
+                                    stationArray.add(station);
+                                }
+                                Log.i(TAG, "station count = " + stationArray.size());
+                                initMap();
+                                Utils.dismiss();
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                                Log.w(TAG, "Failed to read value.", databaseError.toException());
+                            }
                         }
-                        Log.i(TAG, "station count = " + stationArray.size());
-                        initMap();
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Log.w(TAG, "Failed to read value.", databaseError.toException());
-                    }
-                }
-        );
+                );
+            }
+        }).start();
     }
 
     private void initMap() {
