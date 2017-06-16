@@ -22,8 +22,6 @@ public class MassageDetail extends BaseFragment {
     private View view;
     private Context thisContext;
     Massage massage;
-    private FragmentManager manager;
-    private FragmentTransaction transaction;
     FloatingActionMenu floatingActionMenu;
     FloatingActionButton floatingActionButtonAddCard,floatingActionButtonRefresh;
 
@@ -37,7 +35,6 @@ public class MassageDetail extends BaseFragment {
 
         final TitleBar titleBar = (TitleBar)view.findViewById(R.id.title_bar);
         titleBar.setImmersive(true);
-
         titleBar.setBackgroundColor(Color.parseColor("#64b4ff"));
 
         titleBar.setLeftText("返回");

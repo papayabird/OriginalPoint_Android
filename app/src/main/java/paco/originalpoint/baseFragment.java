@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,14 +19,22 @@ import android.view.WindowManager;
  * Created by tsaiyuheng on 2017/2/14.
  */
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment<E> extends Fragment {
 
     protected Activity mActivity;
-
+    protected E mInput = null;
+    protected FragmentManager manager;
+    protected FragmentTransaction transaction;
     /**
      * 获得全局的，防止使用getActivity()为空
      * @param context
      */
+
+    public void init(E input)
+    {
+        mInput = input;
+    }
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);

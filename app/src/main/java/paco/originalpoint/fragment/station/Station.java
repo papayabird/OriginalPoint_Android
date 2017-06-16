@@ -7,21 +7,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,11 +24,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import paco.originalPoint.BaseFragment;
 import paco.originalPoint.R;
 import paco.originalPoint.TitleBar;
-import paco.originalPoint.BaseFragment;
 import paco.originalPoint.Utils;
-import paco.originalPoint.fragment.station.StationObject;
 
 public class Station extends BaseFragment {
     private View view;
@@ -121,6 +114,30 @@ public class Station extends BaseFragment {
                             .title(stationObj.getStationName()));
                     marker.setTag(i);
                 }
+                map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                    @Override
+                    public boolean onMarkerClick(Marker marker) {
+                        return false;
+                    }
+                });
+
+                map.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+
+                    @Override
+                    public void onInfoWindowClick(Marker marker) {
+                        Integer clickCount = (Integer) marker.getTag();
+                        Log.i(TAG, "clickCount = " + clickCount);
+
+                        StationDetail detail = new StationDetail();
+                        detail.init(stationArray.get(clickCount));
+                        manager = getFragmentManager();
+                        transaction = manager.beginTransaction();
+                        transaction.addToBackStack(null);
+                        transaction.replace(R.id.frame, detail);
+                        transaction.commit();
+
+                    }
+                });
 
                 double la = 25.033718;
                 double lo = 121.56481;
@@ -129,14 +146,6 @@ public class Station extends BaseFragment {
             }
         });
 
-    }
-
-    public boolean onMarkerClick(final Marker marker) {
-
-        Integer clickCount = (Integer) marker.getTag();
-        Log.i(TAG, "clickCount = " + clickCount);
-
-        return false;
     }
 
         @Override

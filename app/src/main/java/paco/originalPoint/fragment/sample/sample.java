@@ -7,10 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import paco.originalPoint.MainActivity;
+import paco.originalPoint.BaseFragment;
 import paco.originalPoint.R;
 import paco.originalPoint.TitleBar;
-import paco.originalPoint.BaseFragment;
 
 
 public class Sample extends BaseFragment {

@@ -27,8 +27,6 @@ public class Massage extends BaseFragment {
     private boolean mIsSelected;
     private View view;
     private Context thisContext;
-    private FragmentManager manager;
-    private FragmentTransaction transaction;
     paco.originalPoint.fragment.massage.MassageDetail massageDetail;
     Settings settings;
     Notibox notibox;
