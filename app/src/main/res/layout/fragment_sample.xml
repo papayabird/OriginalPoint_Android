@@ -54,4 +54,24 @@
 
     </com.github.clans.fab.FloatingActionMenu>
 
+    <LinearLayout android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="72dp"
+        >
+        <Button android:text="New"
+            android:id="@+id/Button01"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+        </Button>
+        <Button android:text="Filter"
+            android:id="@+id/Button02"
+            android:layout_toRightOf="@+id/Button01"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+        </Button>
+    </LinearLayout>
+
 </RelativeLayout>
